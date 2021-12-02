@@ -1,8 +1,9 @@
 import java.io.File
 
 fun main(args: Array<String>) {
-    println("Advent of code!")
-    println("Day 1 - puzzle 1!")
+    println("Advent of code - day 1!")
+    println("======================")
+    println("Puzzle 1!")
     val lines = readInputAsListOfInt(1)
     val increased = lines.asSequence()
         .zipWithNext()
