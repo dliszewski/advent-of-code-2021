@@ -1,5 +1,3 @@
-import java.io.File
-
 fun main(args: Array<String>) {
     println("Advent of code - day 2!")
     println("======================")
@@ -45,8 +43,4 @@ fun main(args: Array<String>) {
 
 enum class Direction {
     FORWARD, DOWN, UP
-}
-
-fun readInput(inputDay: Int): List<String> {
-    return File("src/main/resources/day$inputDay-input").readLines()
 }

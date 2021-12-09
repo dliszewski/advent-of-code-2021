@@ -1,5 +1,3 @@
-import java.io.File
-
 fun main(args: Array<String>) {
     println("Advent of code - day 1!")
     println("======================")
@@ -19,8 +17,4 @@ fun main(args: Array<String>) {
         .count { it.first < it.second }
 
     println("Result: $sumOfIncreased")
-}
-
-fun readInputAsListOfInt(inputDay: Int): List<Int> {
-    return File("src/main/resources/day$inputDay-input").readLines().map { it.toInt() }
 }
