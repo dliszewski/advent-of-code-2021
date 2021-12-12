@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
 
     println("Puzzle 2!")
     val result2 = lines
-        .filter { it.isHorizontalOrVertical() || it.isDiagonal()}
+        .filter { it.isHorizontalOrVertical() || it.isDiagonal() }
         .map { it.pointsBetween() }
         .flatten()
         .groupBy { it }
@@ -54,14 +54,14 @@ data class Line(val start: Point, val end: Point) {
     }
 
     fun pointsBetween(): List<Point> {
-        return if(isHorizontalOrVertical()) {
-            val min = min(start.x, end.x)
-            val max = max(start.x, end.x)
-            (min..max)
+        return if (isHorizontalOrVertical()) {
+            val minX = min(start.x, end.x)
+            val maxX = max(start.x, end.x)
+            (minX..maxX)
                 .map { x ->
-                    val min1 = min(start.y, end.y)
-                    val max1 = max(start.y, end.y)
-                    (min1..max1).map { y -> Point(x, y) }
+                    val minY = min(start.y, end.y)
+                    val maxY = max(start.y, end.y)
+                    (minY..maxY).map { y -> Point(x, y) }
                 }.flatten()
         } else {
             val dx = start.x - end.x
@@ -69,8 +69,8 @@ data class Line(val start: Point, val end: Point) {
             (0..abs(dx))
                 .map {
                     Point(
-                        if(dx < 0) start.x + it else start.x - it,
-                        if(dy < 0) start.y + it else start.y - it
+                        if (dx < 0) start.x + it else start.x - it,
+                        if (dy < 0) start.y + it else start.y - it
                     )
                 }
         }
@@ -78,7 +78,7 @@ data class Line(val start: Point, val end: Point) {
     }
 }
 
-data class Point(val x: Int, val y: Int): Comparable<Point> {
+data class Point(val x: Int, val y: Int) : Comparable<Point> {
     override fun compareTo(other: Point): Int {
         if (this.x < other.x) return -1
         if (this.x > other.x) return 1
